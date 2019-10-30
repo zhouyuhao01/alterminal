@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="aiterminal.android.chdmc.com.aiterminal.activity.AddComplainActivity"
+    tools:showIn="@layout/activity_add_complain">
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/textview_complain_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="案卷类型"
+        android:textSize="18sp"/>
+    <RadioGroup
+        android:background="@color/white"
+        android:id="@+id/radiogroup_complain_type"
+        android:layout_below="@id/textview_complain_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <GridLayout
+            android:columnCount="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:text="紧急突发事件"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="暴露垃圾"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="河道管理"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="路面破损"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="乱摆摊点"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="城市家具破损"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </GridLayout>
+    </RadioGroup>
+
+    <TextView
+        android:layout_below="@id/radiogroup_complain_type"
+        android:id="@+id/textview_complain_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="28dp"
+        android:text="文字留言"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:inputType=""
+        android:id="@+id/edittext_complain"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@id/textview_complain_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text_take_photo"
+        android:layout_below="@id/edittext_complain"
+        android:text="现场拍照"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:padding="6dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_below="@id/text_take_photo"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:background="@drawable/back_round"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/button_take_photo"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+                <ImageView
+                    android:src="@drawable/ic_take_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="近景照片"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/back_round"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/button_take_photo_next"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+                <ImageView
+                    android:src="@drawable/ic_take_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"  />
+
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="远景照片"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:background="@drawable/back_round"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="60dp"
+                android:id="@+id/button_take_photo_more"
+                android:layout_height="60dp">
+                <ImageView
+                    android:src="@drawable/ic_take_photo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"  />
+
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="更多照片"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/complain_photo_container"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/complain_photo_close"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/complain_photo_remote"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+            <LinearLayout
+                android:id="@+id/complain_photo_more_container"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:textColor="@color/grey"
+            android:text="请提供现场清晰照片远近各一张"
+            android:layout_below="@id/complain_photo_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/button_complain_confirm"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="确认提交"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:visibility="invisible"
+        android:id="@+id/complain_upload_loadingLayout"
+        android:background="#99ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+
+            android:layout_centerInParent="true"
+            android:id="@+id/complain_upload_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

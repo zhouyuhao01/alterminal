@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">杭州杭钻</string>
+    <string name="navigate_news">要闻</string>
+    <string name="navigate_infos">实时数据</string>
+    <string name="navigate_my">我的</string>
+    <string name="navigate_operation">操作</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_complain">投诉</string>
+    <string name="title_activity_score">ScoreActivity</string>
+</resources>

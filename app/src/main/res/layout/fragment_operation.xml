@@ -1,0 +1,235 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="aiterminal.android.chdmc.com.aiterminal.fragments.OperationFragment"
+    android:orientation="vertical">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/news_img"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <GridLayout
+        android:layout_marginTop="20dp"
+        android:rowCount="1"
+        android:columnCount="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:id="@+id/operation_complain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:src="@drawable/ic_button_complain"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:text="爆料"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/operation_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:src="@drawable/ic_button_score"
+                android:layout_columnWeight="1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:text="积分"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/operation_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:src="@drawable/ic_button_card"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+            <TextView
+                android:text="打卡"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:id="@+id/operation_comment"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:src="@drawable/ic_button_comments"
+                android:layout_columnWeight="1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:text="评价"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/operation_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:src="@drawable/ic_button_collect"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:text="回收"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </GridLayout>
+
+    <GridLayout
+        android:background="@color/grey"
+        android:layout_marginTop="10dp"
+        android:rowCount="4"
+        android:columnCount="4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="减量管理"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="清运管理"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="源头管理"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="分类打卡"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="分类评价"
+            android:layout_width="60dp"
+
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="垃圾回收"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="报表管理"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="车辆管理"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="异常报警"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="指标管理"
+            android:layout_width="60dp"
+
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="道路保洁"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+        <Button
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/round_back_blue"
+            android:layout_columnWeight="1"
+            android:text="更多"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+
+    </GridLayout>
+
+</LinearLayout>

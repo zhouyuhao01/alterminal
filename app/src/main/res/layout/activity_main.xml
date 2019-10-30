@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="aiterminal.android.chdmc.com.aiterminal.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_gravity="left"
+                android:id="@+id/toolbar_location"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="杭州"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="首页"/>
+            <ImageView
+                android:paddingRight="10dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_login"
+                android:id="@+id/toolbar_login"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="首页"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/toolbar"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation"
+        android:orientation="horizontal" />
+
+    <aiterminal.android.chdmc.com.aiterminal.component.BottomBar
+        android:background="#FFFFFF"
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom" />
+
+</RelativeLayout>
