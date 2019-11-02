@@ -50,6 +50,7 @@ import aiterminal.android.chdmc.com.aiterminal.bean.ComplainBean;
 import aiterminal.android.chdmc.com.aiterminal.network.OSSManager;
 import aiterminal.android.chdmc.com.aiterminal.network.RequestUtil;
 import aiterminal.android.chdmc.com.aiterminal.utils.FileUtils;
+import aiterminal.android.chdmc.com.aiterminal.utils.Utils;
 import butterknife.ButterKnife;
 
 import static android.content.DialogInterface.BUTTON_POSITIVE;
@@ -57,7 +58,7 @@ import static android.content.DialogInterface.BUTTON_POSITIVE;
 /**
  * 爆料Activity
  */
-public class AddComplainActivity extends BaseActivity implements View.OnClickListener {
+public class AddComplainActivity extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     private static final int UPLOAD_FINISH = 0;
     private static final int ADD_COMPLAIN_FINISH = 1;
@@ -81,6 +82,7 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
             }
         }
     };
+    private boolean changeGroup = false;
 
     private void showAddComplainSuccessDialog() {
 
@@ -103,7 +105,8 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
     private Button mAddComplainConfirm;
     private LinearLayout mComplainPhotoContainer;
     private EditText mComplainMessageTextView;
-    private RadioGroup mComplainTypeRadioGroup;
+    private RadioGroup mComplainTypeRadioGroup1;
+    private RadioGroup mComplainTypeRadioGroup2;
     private String mComplainType;
 
     private String mCloseBitmapName;
@@ -139,16 +142,30 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
 
         mComplainMessageTextView = findViewById(R.id.edittext_complain);
 
-        mComplainTypeRadioGroup = findViewById(R.id.radiogroup_complain_type);
+        mComplainTypeRadioGroup1 = findViewById(R.id.radiogroup_complain_type1);
+        mComplainTypeRadioGroup2 = findViewById(R.id.radiogroup_complain_type2);
 
-        mComplainTypeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = findViewById(checkedId);
-                mComplainType = radioButton.getText().toString();
+        mComplainTypeRadioGroup1.setOnCheckedChangeListener(this);
 
+        mComplainTypeRadioGroup2.setOnCheckedChangeListener(this);
+
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (group != null && checkedId > -1 && changeGroup == false) {
+            if (group == mComplainTypeRadioGroup1) {
+                changeGroup = true;
+                mComplainTypeRadioGroup2.clearCheck();
+                changeGroup = false;
+            } else {
+                changeGroup = true;
+                mComplainTypeRadioGroup1.clearCheck();
+                changeGroup = false;
             }
-        });
+            RadioButton radioButton = findViewById(checkedId);
+            mComplainType = radioButton.getText().toString();
+        }
 
     }
 
@@ -163,7 +180,6 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
             //没有权限，向用户请求权限
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
         }
-
     }
 
     @Override
@@ -189,8 +205,8 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
                             LinearLayout imgMoreContainer = findViewById(R.id.complain_photo_more_container);
                             ImageView imageView = new ImageView(getBaseContext());
                             imageView.setImageBitmap(bitmap);
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip2px(60), dip2px(60));
-                            params.setMarginEnd(dip2px(5));
+                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Utils.dip2px(60), Utils.dip2px(60));
+                            params.setMarginEnd(Utils.dip2px(5));
                             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                             imgMoreContainer.addView(imageView, params);
                             mMoreBitmapList.add(bitmap);
@@ -202,10 +218,6 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private int dip2px(float dipValue) {
-        float scale = getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
-    }
 
     OSSCompletedCallback ossCompletedCallback = new OSSCompletedCallback() {
 
@@ -269,10 +281,10 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.button_complain_confirm:
 
-//                if (mComplainType == null) {
-//                    Toast.makeText(this, "请选择投诉类型", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
+                if (mComplainType == null) {
+                    Toast.makeText(this, "请选择投诉类型", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (TextUtils.isEmpty(mComplainMessageTextView.getText().toString())) {
                     Toast.makeText(this, "请输入投诉内容", Toast.LENGTH_SHORT).show();
@@ -294,7 +306,6 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
                     mUploadImageTaskCount++;
                     mCloseBitmapName = nowTime + "close.png";
                     OSSManager.getInstance().uploadFile(mCloseBitmapName, filepath, ossCompletedCallback);
-
                 }
 
                 if (mRemoteBitmap != null) {
@@ -305,8 +316,8 @@ public class AddComplainActivity extends BaseActivity implements View.OnClickLis
                 }
 
                 if (mMoreBitmapList.size() > 0) {
+                    mUploadImageTaskCount += mMoreBitmapList.size();
                     for (int i = 0; i < mMoreBitmapList.size(); i++) {
-                        mUploadImageTaskCount++;
                         String filepath = FileUtils.saveBitmap(mRemoteBitmap, "mMoreBitmap" + i +".png");
                         String moreBitmapName = nowTime + "more"+i+".png";
                         mMoreBitmapNameList.add(moreBitmapName);

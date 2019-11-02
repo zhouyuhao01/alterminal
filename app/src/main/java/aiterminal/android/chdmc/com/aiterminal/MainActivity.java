@@ -12,6 +12,7 @@ import android.widget.Toast;
 import aiterminal.android.chdmc.com.aiterminal.activity.LoginActivity;
 import aiterminal.android.chdmc.com.aiterminal.component.BottomBar;
 import aiterminal.android.chdmc.com.aiterminal.fragments.ChartFragment;
+import aiterminal.android.chdmc.com.aiterminal.fragments.MessageFragment;
 import aiterminal.android.chdmc.com.aiterminal.fragments.MyFragment;
 import aiterminal.android.chdmc.com.aiterminal.fragments.NewsFragment;
 import aiterminal.android.chdmc.com.aiterminal.fragments.OperationFragment;
@@ -20,6 +21,7 @@ import aiterminal.android.chdmc.com.aiterminal.manager.LoginManager;
 public class MainActivity extends AppCompatActivity
         implements ChartFragment.OnFragmentInteractionListener ,
         MyFragment.OnFragmentInteractionListener,
+        MessageFragment.OnFragmentInteractionListener,
         OperationFragment.OnFragmentInteractionListener,
         NewsFragment.OnFragmentInteractionListener, View.OnClickListener{
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity
                         "首页",
                         R.drawable.action,
                         R.drawable.action_pressed)
-                .addItem(MyFragment.class,
+                .addItem(MessageFragment.class,
                         "消息",
                         R.drawable.my,
                         R.drawable.my_pressed)
@@ -93,6 +95,8 @@ public class MainActivity extends AppCompatActivity
         if (!LoginManager.getInstance().hasLogin()) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+        } else {
+            Toast.makeText(this, "您已经成功登录", Toast.LENGTH_LONG).show();
         }
 
     }

@@ -132,7 +132,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="减量管理"
             android:layout_width="60dp"
@@ -140,7 +140,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="清运管理"
             android:layout_width="60dp"
@@ -148,7 +148,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="源头管理"
             android:layout_width="60dp"
@@ -156,7 +156,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="分类打卡"
             android:layout_width="60dp"
@@ -164,7 +164,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="分类评价"
             android:layout_width="60dp"
@@ -173,7 +173,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="垃圾回收"
             android:layout_width="60dp"
@@ -181,7 +181,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="报表管理"
             android:layout_width="60dp"
@@ -190,7 +190,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="车辆管理"
             android:layout_width="60dp"
@@ -198,7 +198,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="异常报警"
             android:layout_width="60dp"
@@ -206,7 +206,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="指标管理"
             android:layout_width="60dp"
@@ -215,7 +215,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="道路保洁"
             android:layout_width="60dp"
@@ -223,7 +223,7 @@
         <Button
             android:layout_margin="10dp"
             android:textColor="#fff"
-            android:background="@drawable/round_back_blue"
+            android:background="@drawable/back_round_color_primar"
             android:layout_columnWeight="1"
             android:text="更多"
             android:layout_width="60dp"

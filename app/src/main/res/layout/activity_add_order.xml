@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ImageView
+            android:src="@drawable/ic_back"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:id="@+id/button_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_weight="6"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:text="垃圾回收"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="left"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.sevenheaven.segmentcontrol.SegmentControl
+            android:id="@+id/segment_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            app:selectedColor="#32ADFF"
+            app:normalColor="#FFFFFF"
+            app:cornerRadius="5dp"
+            app:separatorWidth="2dp"
+            app:boundWidth="2dp"
+            app:texts="可回收垃圾|大件垃圾"
+            app:verticalGap="10dp"
+            app:horizonGap="10dp"/>
+
+        <EditText
+            android:id="@+id/order_info"
+            android:padding="3dp"
+            android:hint="请输入需要回收的类型信息"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back_round_black"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <EditText
+            android:id="@+id/order_call_num"
+            android:padding="3dp"
+            android:hint="联系方式"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/back_round_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/back_round"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="60dp"
+            android:id="@+id/button_order_take_photo"
+            android:layout_height="60dp">
+            <ImageView
+                android:src="@drawable/ic_take_photo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"  />
+
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:text="添加图片"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/order_photo_more_container"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_add_order"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:text="发布"
+            android:textColor="@color/white"
+            android:background="@drawable/back_round_color_primar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

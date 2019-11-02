@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ImageView
+            android:src="@drawable/ic_back"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:id="@+id/button_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_weight="6"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:text="打卡"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/back_round_black"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_weight="1"
+            android:src="@drawable/ic_daka"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:gravity="center_vertical"
+            android:text="记录丢垃圾记录，获取积分"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="40dp" />
+        <Button
+            android:id="@+id/button_goto_throw_garbage"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="去丢垃圾"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

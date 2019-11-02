@@ -120,8 +120,9 @@ public class NewsFragment extends Fragment {
             mNewsListBeans.add(new NewsListItemBean("今年的物理学诺奖获得者，改变了我们对宇宙的看法",
                     "", "https://inews.gtimg.com/newsapp_ls/0/10473789352_294195/0",
                     "https://new.qq.com/rain/a/20191008A0LJBA00"));
+            DbUtil.insertNewsList(mNewsListBeans);
         }
-        DbUtil.insertNewsList(mNewsListBeans);
+
     }
 
     @Override

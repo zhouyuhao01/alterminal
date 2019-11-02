@@ -44,7 +44,7 @@ public class LoginManager {
             public void onSuccess(JSONObject result) {
                 if (result.getBoolean("success")) {
                     SPManager.saveBoolean(KEY_ISLOGIN, true);
-                    JSONObject userInfo = result.getJSONObject("data");
+                    JSONObject userInfo = result.getJSONObject("result");
                     SPManager.saveString(KEY_USERNAME, userInfo.getString("userName"));
                     SPManager.saveString(KEY_PASSWORD, userInfo.getString("password"));
                     SPManager.saveString(KEY_USERICON_URL,

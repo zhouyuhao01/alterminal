@@ -16,6 +16,7 @@ import java.io.IOException;
 
 import aiterminal.android.chdmc.com.aiterminal.R;
 import aiterminal.android.chdmc.com.aiterminal.bean.ComplainBean;
+import aiterminal.android.chdmc.com.aiterminal.bean.Order;
 import aiterminal.android.chdmc.com.aiterminal.manager.LoginManager;
 import aiterminal.android.chdmc.com.aiterminal.manager.SPManager;
 import okhttp3.Call;
@@ -36,8 +37,32 @@ public class RequestUtil {
 
     private static final String TAG = RequestUtil.class.getName();
 
-//    private static final String HOST = "http://192.168.31.180:8080";
-    private static final String HOST = "http://30.55.209.71:8080";
+    private static final String HOST = "http://121.40.150.25:8080";
+//    private static final String HOST = "http://30.55.209.71:8080";
+
+    public static void addOrder(Order order, OnResultListner listner) {
+        String url = HOST + "/addCollectionOrder";
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("orderMessage", order.getOrderMessage());
+        builder.add("orderCallNum", order.getOrderNum());
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String imgUrl : order.getImgUrls()) {
+            stringBuilder.append(imgUrl + ",");
+        }
+
+        builder.add("imgUrls", stringBuilder.toString());
+        builder.add("orderType", order.getOrderType()+"");
+        builder.add("userName", SPManager.getString(SPManager.KEY_USERNAME));
+        doPost(url, builder.build(), listner);
+    }
+
+    public static void getComplains(OnResultListner listner) {
+        String url = HOST + "/getComplain";
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("username", SPManager.getString(SPManager.KEY_USERNAME));
+        doPost(url, builder.build(), listner);
+    }
 
 
     public interface OnResultListner {
@@ -64,7 +89,7 @@ public class RequestUtil {
 
         FormBody.Builder builder = new FormBody.Builder();
 
-        builder.add("type", "text");
+        builder.add("type", complainBean.getComplainType());
         builder.add("ownerId", SPManager.getString(SPManager.KEY_USERNAME));
         if (!TextUtils.isEmpty(complainBean.getImgCloseUrl())) {
             builder.add("imgCloseUrl", complainBean.getImgCloseUrl());
@@ -90,7 +115,7 @@ public class RequestUtil {
         doPost(url, builder.build(), listner);
     }
 
-    public void getComplain(OnResultListner listner) {
+    public void getComplainList(OnResultListner listner) {
         String url = HOST + "/getComplain";
         FormBody.Builder builder = new FormBody.Builder();
         builder.add("ownerId", SPManager.getString(SPManager.KEY_USERNAME));
@@ -143,13 +168,14 @@ public class RequestUtil {
         @Override
         public void onResponse(Call call, Response response) throws IOException {
             JSONObject result = JSONObject.parseObject(response.body().string());
-
-            if (result.getBoolean("success")) {
-                onResultListner.onSuccess(result);
-            } else {
-                onResultListner.onFailed(result.getString("message"));
+            Log.d(TAG, "onResponse: " + result);
+            if (result != null) {
+                if (result.getBoolean("success")) {
+                    onResultListner.onSuccess(result);
+                } else {
+                    onResultListner.onFailed(result.getString("message"));
+                }
             }
-
 
         }
     };

@@ -18,6 +18,8 @@ import android.widget.Button;
 
 import aiterminal.android.chdmc.com.aiterminal.R;
 import aiterminal.android.chdmc.com.aiterminal.activity.AddComplainActivity;
+import aiterminal.android.chdmc.com.aiterminal.activity.AddOrderActivity;
+import aiterminal.android.chdmc.com.aiterminal.activity.AddRecordActivity;
 import aiterminal.android.chdmc.com.aiterminal.activity.ScoreActivity;
 
 import static android.app.Activity.RESULT_OK;
@@ -44,7 +46,6 @@ public class OperationFragment extends Fragment implements View.OnClickListener 
 
     private View mCamera;
     private View mTousu;
-    private View mCall;
     private View other;
 
     private OnFragmentInteractionListener mListener;
@@ -86,11 +87,11 @@ public class OperationFragment extends Fragment implements View.OnClickListener 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_operation, container, false);
 
-        mCall = rootView.findViewById(R.id.operation_collect);
-        mCall.setOnClickListener(this);
-
+        rootView.findViewById(R.id.operation_collect).setOnClickListener(this);
         rootView.findViewById(R.id.operation_complain).setOnClickListener(this);
         rootView.findViewById(R.id.operation_score).setOnClickListener(this);
+        rootView.findViewById(R.id.operation_card).setOnClickListener(this);
+        rootView.findViewById(R.id.operation_comment).setOnClickListener(this);
 
         return rootView;
     }
@@ -127,18 +128,15 @@ public class OperationFragment extends Fragment implements View.OnClickListener 
                 intent = new Intent(getContext(), AddComplainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.operation_collect:
-                int hasCall = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE);
-                if (hasCall == PackageManager.PERMISSION_GRANTED) {
-                    //拥有权限，执行操作
-                    intent= new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+ "13486091957"));
-                    startActivity(intent);
-                }else{
-                    //没有权限，向用户请求权限
-                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE}, 0);
-                }
+            case R.id.operation_card:
+                intent = new Intent(getContext(), AddRecordActivity.class);
+                startActivity(intent);
                 break;
+            case R.id.operation_collect:
+                intent = new Intent(getActivity(), AddOrderActivity.class);
+                startActivity(intent);
 
+                break;
         }
     }
 

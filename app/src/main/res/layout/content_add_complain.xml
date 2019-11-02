@@ -17,31 +17,19 @@
         android:layout_marginBottom="8dp"
         android:text="案卷类型"
         android:textSize="18sp"/>
-    <RadioGroup
+
+    <LinearLayout
         android:background="@color/white"
-        android:id="@+id/radiogroup_complain_type"
-        android:layout_below="@id/textview_complain_type"
+        android:orientation="horizontal"
+        android:id="@+id/layout_complain_type"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <GridLayout
-            android:columnCount="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:text="紧急突发事件"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:text="暴露垃圾"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:text="河道管理"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_weight="1"
+            android:id="@+id/radiogroup_complain_type1"
+            android:layout_below="@id/textview_complain_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" >
             <RadioButton
                 android:text="路面破损"
                 android:layout_columnWeight="1"
@@ -58,11 +46,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-        </GridLayout>
-    </RadioGroup>
+        </RadioGroup>
+        <RadioGroup
+            android:layout_weight="1"
+            android:layout_toRightOf="@id/radiogroup_complain_type1"
+            android:id="@+id/radiogroup_complain_type2"
+            android:layout_below="@id/textview_complain_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" >
+            <RadioButton
+                android:text="路面破损"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="乱摆摊点"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="城市家具破损"
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
 
     <TextView
-        android:layout_below="@id/radiogroup_complain_type"
+        android:layout_below="@id/layout_complain_type"
         android:id="@+id/textview_complain_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
